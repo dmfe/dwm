@@ -2,6 +2,7 @@
 
 /* appearance */
 static unsigned int borderpx        = 2;        /* border pixel of windows */
+static unsigned int gappx           = 10;       /* gaps between windows */
 static unsigned int snap            = 32;       /* snap pixel */
 static int showbar                  = 1;        /* 0 means no bar */
 static int topbar                   = 1;        /* 0 means bottom bar */
@@ -101,13 +102,16 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
     { MODKEY|ShiftMask,             XK_o,      setlayout,      {0} },
     { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
+    { MODKEY,                       XK_f,      togglefullscr,  {0} },
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
     { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
     { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
     { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
     { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_s,      setgaps,        {.i = -5 } },
+    { MODKEY,                       XK_s,      setgaps,        {.i = +5 } },
+    { MODKEY|ShiftMask,             XK_d,      setgaps,        {.i = 0  } },
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)
