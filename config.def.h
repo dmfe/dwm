@@ -10,6 +10,8 @@ static int systraypinningfailfirst  = 1;        /* 1: if pinning fails, display 
 static int showsystray              = 1;        /* 0 means no systray */
 static int showbar                  = 1;        /* 0 means no bar */
 static int topbar                   = 1;        /* 0 means bottom bar */
+static int vertpad                  = 10;       /* vertical padding of bar */
+static int sidepad                  = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "monospace:size=14" };
 static const char dmenufont[]       = "monospace:size=14";
 static char normbgcolor[]           = "#222222";
@@ -25,7 +27,7 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "2", "3", "4", "5", "", "", "", "" };
+static const char *tags[] = { "", "2", "3", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -34,6 +36,8 @@ static const Rule rules[] = {
      */
     /* class              instance    title       tags mask     isfloating   monitor */
     { "Gimp",             NULL,       NULL,       0,            1,           -1 },
+    { "jetbrains-idea",   NULL,       NULL,       1 << 3,       0,           -1 },
+    { "libreoffice",      NULL,       NULL,       1 << 4,       0,           -1 },
     { "firefox",          NULL,       NULL,       1 << 5,       0,           -1 },
     { "TelegramDesktop",  NULL,       NULL,       1 << 6,       0,           -1 },
     { "Skype",            NULL,       NULL,       1 << 7,       0,           -1 },
